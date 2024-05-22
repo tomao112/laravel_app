@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController; 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AccessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,6 @@ use App\Http\Controllers\CommentController;
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/article', [PostController::class, 'article'])->name('article');
 Route::get('/post/{post_id}', [PostController::class, 'post'])->name('post'); 
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

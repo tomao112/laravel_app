@@ -10,16 +10,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-sky-100">
-        <div class="flex justify-between">
+    <body class="bg-sky-50">
+        <div class="flex justify-between pt-5 bg-sky-200">
             <div class="flex flex-wrap mb-8">
                 <div class="px-4 py-4">
                     <a href="/" class="text-sm text-gray-700 dark:text-gray-500 underline">トップページ</a>
                 </div>
                 <div class="px-4 py-4">
-                    <a href="article" class="text-sm text-gray-700 dark:text-gray-500 underline">output</a>
+                    <a href="{{ route('article') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">output</a>
                 </div>
-                <d>
             </div>
             <div>
                 @if (Route::has('login'))
