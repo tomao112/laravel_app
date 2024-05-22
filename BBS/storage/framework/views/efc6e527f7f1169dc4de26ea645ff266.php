@@ -40,7 +40,7 @@
 <?php unset($__componentOriginalff9615640ecc9fe720b9f7641382872b); ?>
 <?php endif; ?>
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-sky-50">
             <?php
 $__split = function ($name, $params = []) {
     return [$name, $params];

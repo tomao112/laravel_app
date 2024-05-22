@@ -16,34 +16,24 @@
         </h2>
      <?php $__env->endSlot(); ?>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <table class="table-auto border-solid border-black border-2" style="border-collapse: separate; border-spacing: 0">
-                <tr class="bg-green-300">
-                    <th class="border border-black px-4 py-2">タイトル</th>
-                    <th class="border border-black px-4 py-2">内容</th>
-                    <th class="border border-black px-4 py-2">更新日時</th>
-                    <th class="border border-black px-4 py-2 bg-yellow-300 w-40" colspan="2">操作</th>
-                </tr>
-                <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td class="border border-black px-4 py-2 text-blue-500">
-                            <a href="<?php echo e(route('post', $post['id'])); ?>"><?php echo e($post['title']); ?></a>
-                        </td>
-                        <td class="border border-black px-4 py-2"><?php echo e(Str::limit($post['content'], 80, '…' )); ?></td>
-                        <td class="border border-black px-4 py-2"><?php echo e($post['updated_at']); ?></td>
-                        <td class="border border-black px-4 py-2 text-blue-500 text-center"><a href="<?php echo e(route('edit', $post['id'])); ?>">編集</a></td>
-                        <td class="border border-black px-4 py-2 text-center">
-                            <form method='POST' action="<?php echo e(route('delete', $post['id'])); ?>">
-                                <?php echo csrf_field(); ?>
-                                <button class="text-red-700" onclick='return confirm("タイトルが「<?php echo e($post->title); ?>」の記事を削除しますか？");'>削除</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </table>
+    <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="border rounded-xl border-blue-500 mt-10 mb-5 pl-10 mr-96 ml-96">
+            <div class="flex pt-5">
+                <img class="h-10 w-10" src="<?php echo e(asset('storage/domaso.png')); ?>" alt="">
+                <p class="text-lg mt-2 mb-2"><?php echo e($post->user->name); ?></p>
+            </div>
+            <p class="text-2xl pt-3 pb-5"><a class="hover:text-gray-500" href="<?php echo e(route('post', $post['id'])); ?>"><?php echo e(Str::limit($post['title'], 30, '...')); ?></a></p>
+            <p class="text-gray-400"><?php echo e(Str::limit($post['content'], 80, '…' )); ?></p>
+            <p class="text-xs mt-5"><?php echo e((new DateTime($post['created_at']))->format("Y年m月d日")); ?></p>
+            <div class="flex flex-row-reverse gap-5 mr-10 mb-3">
+                <form method="POST" action="<?php echo e(route('delete', $post['id'])); ?>">
+                    <?php echo csrf_field(); ?>
+                    <button class="underline hover:text-red-500" onclick='return confirm("タイトルが「<?php echo e($post->title); ?>」の記事を削除しますか？");'>削除</button>
+                </form>
+                <p><a class="underline hover:text-blue-500" href="<?php echo e(route('edit', $post['id'])); ?>">編集</a></p>
+            </div>
         </div>
-    </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
