@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\Post; 
 use Auth; 
 use Storage;
@@ -21,12 +22,16 @@ class PostController extends Controller
     public function article()
     {
         $posts = Post::latest('updated_at')->get();
+        // 各記事のIDをログに記録
+        foreach ($posts as $post) {
+        Log::info('記事詳細画面が参照されました ID=' . $post->id);
         return view('article', compact('posts'));
+        }
     }
 
     public function store(Request $request)
     {
-        $data = $request->all(); // フォームで送信されたデータをすべてとってきます
+        $data = $request->all(); // フォームで送信されたデータをすべて取得
         $image = $request->file('image');
 
         if($request->hasFile('image')){
