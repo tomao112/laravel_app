@@ -16,9 +16,6 @@
                 <div class="px-4 py-4">
                     <a href="/" class="text-sm text-gray-700 dark:text-gray-500 underline">トップページ</a>
                 </div>
-                <div class="px-4 py-4">
-                    <a href="{{ route('article') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">output</a>
-                </div>
             </div>
             <div>
                 @if (Route::has('login'))
@@ -36,8 +33,8 @@
             </div>
         </div>
         
-        <div class="font-sans text-gray-900 antialiased">
-            <div class=" mx-auto prose">
+        <div class="font-sans text-gray-900 antialiased flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center prose">
                 {{ $slot }}
             </div>
         </div>

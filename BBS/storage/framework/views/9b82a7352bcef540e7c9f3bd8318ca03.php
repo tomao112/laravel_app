@@ -11,15 +11,15 @@
     <h1 class="mt-10">Laravel 掲示板</h1>
     <p>ここは質問、アウトプット用の掲示板になります</p>
     <h2>みんなの記事一覧</h2>
-    
-
+    <div class="flex flex-wrap items-center justify-center w-screen p-10">
 		<?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-			<div class="border rounded-xl border-blue-500 mb-5 pl-10">
+			<div class="border rounded-xl border-blue-500 mr-5 ml-5 mb-5 pl-10 w-2/6">
 				<p class="text-lg mt-2 mb-2"><?php echo e($post->user->name); ?></p>
 				<p class="text-xs mt-1"><?php echo e((new DateTime($post['created_at']))->format("Y年m月d日")); ?></p>
-				<p class="text-2xl pb-10 hover:text-gray-500"><a href="<?php echo e(route('post', $post['id'])); ?>"><?php echo e(Str::limit($post['title'], 30, '...')); ?></a></p>
+				<p class="text-2xl pb-10 hover:text-gray-500"><a class="no-underline" href="<?php echo e(route('post', $post['id'])); ?>"><?php echo e(Str::limit($post['title'], 30, '...')); ?></a></p>
 			</div>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>

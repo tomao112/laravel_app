@@ -1,0 +1,1 @@
+components.top-button<?php /**PATH C:\Users\OWNER\Desktop\laravel_app\BBS\storage\framework\views/cac555cb6181267198d9c9bc2f1fb4fb.blade.php ENDPATH**/ ?>
