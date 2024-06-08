@@ -11,7 +11,7 @@
   <div class="flex items-center">
     <div class="flex flex-col items-center justify-center">
       <img src="<?php echo e(asset('storage/domaso.png')); ?>" alt="">
-      <h1 class="sans">エンジニアoutput広場</h1>
+      <h1 class="sans">エンジニア広場</h1>
       <div class="flex">
         <?php if (isset($component)) { $__componentOriginala54d99ad90b9f1bc32f345dcfc8a8f81 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginala54d99ad90b9f1bc32f345dcfc8a8f81 = $attributes; } ?>

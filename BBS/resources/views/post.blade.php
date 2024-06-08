@@ -1,17 +1,17 @@
 <x-guest-layout>
 	<x-slot name="title">{{ $post['title'] }}</x-slot>
 
-    <h1>{{ $post['title'] }}</h1>
-
-    <div class="bg-orange-300 font-bold p-3 mb-8">
-        著　　者：{{ $post->user->name }}<br>
+    <div class="font-bold p-3 mb-8">
+        投稿者：{{ $post->user->name }}<br>
         <time datetime="{{ $post['created_at'] }}" itemprop="datepublished">
-            作　　成：{{ (new DateTime($post['created_at']))->format("Y年m月d日 G:i:s") }}<br>
+            投稿日：{{ (new DateTime($post['created_at']))->format("Y年m月d日 G:i:s") }}<br>
         </time>
         <time datetime="{{ $post['updated_at'] }}" itemprop="modified">
             最終更新：{{ (new DateTime($post['updated_at']))->format("Y年m月d日 G:i:s") }}
         </time>
     </div>
+
+    <h1>{{ $post['title'] }}</h1>
 
     @if (isset($post['image_url']))
         <div><img src="{{ $post['image_url'] }}" alt="画像が見つかりません"></div>
@@ -55,7 +55,7 @@
             <input type='hidden' name='post_id' value="{{ $post['id'] }}">
             <label class="block">
                 <textarea name='content'
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    class="mt-1 block w-96 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     rows="3"></textarea>
             </label>
             <button type='submit' class="w-20 bg-blue-600 hover:bg-blue-500 text-white rounded px-4 py-2">投稿</button>
