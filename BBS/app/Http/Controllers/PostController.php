@@ -29,6 +29,13 @@ class PostController extends Controller
         }
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $posts = Post::where('title', 'LIKE', "%{$query}%")->get();
+        return view('search', compact('posts', 'query'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->all(); // フォームで送信されたデータをすべて取得
